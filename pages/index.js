@@ -1,5 +1,21 @@
-function HomePage() {
-    return <div>Welcome to Next.js!</div>
-}
+import NProgress from 'nprogress';
+import Router from 'next/router';
 
-export default HomePage
+Router.onRouteChangeStart = () => {
+    NProgress.start();
+};
+Router.onRouteChangeComplete = () => {
+    NProgress.done();
+};
+
+Router.onRouteChangeError = () => {
+    NProgress.done();
+};
+
+const HomePage = () => (
+    <div className="center">
+        <h1>Home</h1>
+    </div>
+)
+
+export default HomePage;
